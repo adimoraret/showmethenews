@@ -1,0 +1,41 @@
+{
+  "name": "showmethenews",
+  "version": "1.0.0",
+  "description": "show me the news - new aggregator",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --env=development --mode=development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adimoraret/showmethenews.git"
+  },
+  "author": "Adrian Moraret",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adimoraret/showmethenews/issues"
+  },
+  "homepage": "https://github.com/adimoraret/showmethenews#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.54",
+    "@babel/core": "^7.0.0-beta.54",
+    "@babel/polyfill": "^7.0.0-beta.54",
+    "@babel/preset-env": "^7.0.0-beta.54",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "chai": "^4.1.2",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.2",
+    "mocha": "^5.2.0",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "vue-loader": "^14.2.2",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
