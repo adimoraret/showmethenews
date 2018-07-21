@@ -9,7 +9,7 @@ module.exports = function (env) {
 
   const baseConfiguration = {
     entry: {
-      'Home': './src/website/components/pages/home/Home.js',
+      'Index': './src/website/components/pages/index/Index.js',
     },
     devtool: 'source-map',
     output: {
@@ -67,7 +67,7 @@ module.exports = function (env) {
   } else {
     baseConfiguration.devtool = '';
     baseConfiguration.plugins.push(new CopyWebpackPlugin([
-      { from: 'src/themes', to: './themes' },
+      { from: 'src/website/html/theme', to: './theme' },
       { from: 'src/*.+(html|ico)', to: './[name].[ext]' }
     ]));
   }

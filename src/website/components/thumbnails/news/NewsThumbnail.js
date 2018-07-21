@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import Home from './Home.vue'
+import NewsThumbnail from './NewsThumbnail.vue'
 
 new Vue({
   el: "#app",
-  render: h => h(Home)
+  render: h => h(NewsThumbnail)
 });
 
 if (ENV_IS_DEVELOPMENT) {
