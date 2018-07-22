@@ -1,9 +1,9 @@
-service: services
+service: serverless
 
 provider:
   name: google
   runtime: nodejs
-  project: my-project
+  project: showmethenews-1
   # the path to the credentials file needs to be absolute
   credentials: ~/.gcloud/keyfile.json
 
