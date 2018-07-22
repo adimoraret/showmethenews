@@ -4,7 +4,7 @@
             <img :src="thumbnail" alt="thumbnail">
         </div>
         <div class="post-content">
-            <a href="#" class="headline">
+            <a :href="article.url" class="headline">
                 <h5 class="mb-0">{{article.title}}</h5>
             </a>
         </div>
