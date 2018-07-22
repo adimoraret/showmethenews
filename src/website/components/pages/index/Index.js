@@ -1,10 +1,17 @@
 import Vue from 'vue'
-import HackerNews from './HackerNews/HackerNews.vue'
+import BestStoriesHackerNews from './HackerNews/BestStories.vue'
+import LatestJobsHackerNews from './HackerNews/LatestJobs.vue'
 
 new Vue({
   el: "#hackernews",
-  render: h => h(HackerNews)
+  render: h => h(BestStoriesHackerNews)
 });
+
+new Vue({
+  el: "#hackernewslatestjobs",
+  render: h => h(LatestJobsHackerNews)
+});
+
 
 if (ENV_IS_DEVELOPMENT) {
   Vue.config.devtools = true;
