@@ -1,9 +1,16 @@
 'use strict';
 
-exports.http = (request, response) => {
-  response.status(200).send('Hi there!');
+// exports.http = (request, response) => {
+//   response.status(200).send('Hi there!');
+// };
+
+exports.crawlNewsHttp = (request, response) => {
+  response.status(200).send('Hi there from crawl!');
 };
 
-exports.event = (event, callback) => {
+exports.crawlNews = (event, callback) => {
+  console.log('-------------------------');
+  console.log(JSON.stringify(event));
+  console.log('-------------------------');
   callback();
 };

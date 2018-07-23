@@ -1,4 +1,6 @@
-service: serverless
+service: events
+app: showmethenews
+tenant: adimoraret
 
 provider:
   name: google
@@ -19,21 +21,21 @@ package:
     - .git/**
 
 functions:
-  first:
-    handler: http
+  crawlOverHttp:
+    handler: crawlNewsHttp
     events:
-      - http: path
+      - http: news
 
   # NOTE: the following uses an "event" event (pubSub event in this case).
   # Please create the corresponding resources in the Google Cloud
   # before deploying this service through Serverless
 
-  #second:
-  #  handler: event
-  #  events:
-  #    - event:
-  #        eventType: providers/cloud.pubsub/eventTypes/topic.publish
-  #        resource: projects/*/topics/my-topic
+  second:
+    handler: crawlNews
+    events:
+      - event:
+          eventType: providers/cloud.pubsub/eventTypes/topic.publish
+          resource: projects/showmethenews-1/topics/crawl
 
 # you can define resources, templates etc. the same way you would in a
 # Google Cloud deployment configuration
