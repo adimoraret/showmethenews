@@ -1,16 +1,13 @@
 'use strict';
 
-// exports.http = (request, response) => {
-//   response.status(200).send('Hi there!');
-// };
+import NewsCrawler from './news/NewsCrawler'
 
 exports.crawlNewsHttp = (request, response) => {
-  response.status(200).send('Hi there from crawl!');
+  response.status(200).send('Hi there from crawl!')
 };
 
 exports.crawlNews = (event, callback) => {
-  console.log('-------------------------');
-  console.log(JSON.stringify(event));
-  console.log('-------------------------');
+  const newsCrawler = new NewsCrawler('NewYorkTimes', 'top_stories', 'technology');
+  newsCrawler.crawl();
   callback();
 };
