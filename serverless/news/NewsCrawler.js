@@ -7,10 +7,11 @@ export default class NewsCrawler {
     this._category = category;
   }
 
-  crawl() {
+  async crawl() {
     switch (this._source) {
       case 'NewYorkTimes': {
         const newYorkTimesCrawler = new NewYorkTimesCrawler(this._type, this._category);
+        return await newYorkTimesCrawler.crawl();
       }
       default: throw new Error(`Invalid source. Expected: NewYorkTimes. Got: ${this._source} `);
     }
