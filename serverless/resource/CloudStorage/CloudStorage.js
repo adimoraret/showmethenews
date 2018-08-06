@@ -1,15 +1,26 @@
-import { Storage } from '@google-cloud/storage'
+import Storage from '@google-cloud/storage'
+import { Readable } from 'stream'
 
 export default class CloudStorage {
   constructor(bucketName) {
-    //this._storage = new Storage({ projectId: process.env.projectId })
+    const storage = new Storage({ projectId: process.env.NewsProjectId })
     this._bucketName = bucketName
-    this._bucket = Storage.bucket(bucketName)
+    this._bucket = storage.bucket(bucketName)
   }
 
-  uploadFile(fileName, filePath, fileContent) {
-    const path = `gs://${this._bucketName}/${filePath}/${fileName}`
-    var file = this._bucket.file('my-file');
+  _createReadableStream(content) {
+    var rStream = new Readable
+    rStream.push(content)
+    rStream.push(null)
+    return rStream
+  }
+
+  uploadFile(filePath, fileContent, errorCallBack, successCallBack) {
+    const file = this._bucket.file(filePath)
+    this._createReadableStream(fileContent)
+      .pipe(file.createWriteStream())
+      .on('error', err => errorCallBack(err))
+      .on('finish', successCallBack)
   }
 
 }
