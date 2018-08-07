@@ -16,7 +16,6 @@ export default {
     },
     created: async function(){
       this.articles = await hackerNewsAccess.getBestStories();
-      console.log(this.articles);
     },
     data : function(){
       return {
