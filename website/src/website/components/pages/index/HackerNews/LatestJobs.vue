@@ -1,11 +1,9 @@
 <template>
-  <div class="widget-content">
-    <ul>
-      <li v-for="job in jobs" :key="job.url" class="inline">
-        <a :href="job.url" :title="job.title"> {{job.title}} </a>
-      </li>
-    </ul>
-  </div>
+  <ul>
+    <li v-for="job in jobs" :key="job.url" class="inline">
+      <a :href="job.url" :title="job.title"> {{job.title}} </a>
+    </li>
+  </ul>
 </template>
 <script>
 import HackerNewsAccess from '../../../../access/hackernews/HackerNewsAccess.js'
@@ -26,7 +24,6 @@ export default {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-size: 12px;
   }
 </style>
 
