@@ -1,7 +1,7 @@
 export default class HackerNewsAccess {
 
   async getBestStories() {
-    return await this.getStories('https://hacker-news.firebaseio.com/v0/beststories.json', 5)
+    return await this.getStories('https://hacker-news.firebaseio.com/v0/beststories.json')
   }
 
   async getJobStories() {
@@ -11,7 +11,7 @@ export default class HackerNewsAccess {
   async getStories(storyTypeUrl, numberOfStories) {
     const storiesResponse = await fetch(storyTypeUrl)
     const storyIds = await storiesResponse.json()
-    const topStoryIds = storyIds.slice(0, numberOfStories)
+    const topStoryIds = numberOfStories ? storyIds.slice(0, numberOfStories) : storyIds
 
     const stories = topStoryIds.map(async (storyId) => {
       const storyResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json`)
