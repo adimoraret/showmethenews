@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import BestStoriesHackerNews from './HackerNews/BestStories.vue'
 import LatestJobsHackerNews from './HackerNews/LatestJobs.vue'
-// import Technology from './NewYorkTimes/Technology.vue'
+import SmallPost from './NewYorkTimes/SmallPost.vue'
 
 new Vue({
   el: "#hackernews",
@@ -12,10 +12,10 @@ new Vue({
   render: h => h(LatestJobsHackerNews)
 });
 
-// new Vue({
-//   el: "#newyorktimestechnology",
-//   render: h => h(Technology)
-// })
+new Vue({
+  el: "#test123",
+  render: h => h(SmallPost)
+})
 
 
 if (ENV_IS_DEVELOPMENT) {
