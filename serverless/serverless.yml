@@ -4,7 +4,7 @@ tenant: adimoraret
 
 provider:
   name: google
-  runtime: nodejs
+  runtime: nodejs8
   project: showmethenews-1
   # the path to the credentials file needs to be absolute
   credentials: ~/.gcloud/keyfile.json

@@ -1,20 +1,15 @@
 <template>
-  <div class="row row-8">
-    <div class="col-lg-6">
-      <small-post v-for="article in articles" :key="article.url" :article="article"></small-post>
-    </div> 
-    <div class="col-lg-6">
-      <large-post :article="mainArticle"></large-post>
-    </div>          
-
+  <div class="tabs__content-pane tabs__content-pane--active" id="tab-all" style="display: block;">
+    <div class="row card-row">
+      <SmallVericalPost v-for="article in articles" :key="article.url" :article="article"></SmallVericalPost>
+    </div>
   </div>
 </template>
 <script>
-  import SmallPost from './SmallPost.vue'
-  import LargePost from './LargePost.vue'
+  import SmallVericalPost from './SmallVerticalPost.vue'
 
   const articles = [];
-  for(var i=0; i<3; i++){
+  for(var i=0; i<6; i++){
     articles.push({
           title: "",
           abstract: "",
@@ -26,16 +21,15 @@
           publishedDate: ""
         })
   }
+
   export default {
     components: {
-      SmallPost: SmallPost,
-      LargePost: LargePost
+      SmallVericalPost: SmallVericalPost
     },
     created: async function() {
       const articleResponse = await fetch("resources/news/NewYorkTimes/top_stories/technology/snapshot.json")
       const articles = await articleResponse.json()
-      this.articles = articles.slice(0,3)
-      this.mainArticle = articles[18]
+      this.articles = articles.slice(4,4+6)
     },
     data : function(){
       return {
@@ -51,7 +45,6 @@
           publishedDate: ""
         }
       }
-    },  
+    }
   }
 </script>
-
