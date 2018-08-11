@@ -9,7 +9,7 @@ module.exports = function (env) {
 
   const baseConfiguration = {
     entry: {
-      'Index': './src/website/components/pages/index/Index.js',
+      'Index': './src/ui/pages/index/Index.js',
     },
     devtool: 'source-map',
     output: {
