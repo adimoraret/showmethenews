@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import BestStoriesHackerNews from './HackerNews/BestStories.vue'
 import LatestJobsHackerNews from './HackerNews/LatestJobs.vue'
-import PopularSection from './PopularSection/PopularSection.vue'
+import PopularNewsSection from './PopularNewsSection/PopularNewsSection.vue'
 import TopNewsSection from './TopNewsSection/TopNewsSection.vue'
 
 new Vue({
@@ -13,8 +13,8 @@ new Vue({
   render: h => h(LatestJobsHackerNews)
 })
 new Vue({
-  el: "#popularsection",
-  render: h => h(PopularSection)
+  el: "#popularnewssection",
+  render: h => h(PopularNewsSection)
 })
 new Vue({
   el: '#topnewssection',
