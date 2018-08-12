@@ -25,7 +25,7 @@
       LargePost: LargePost
     },
     created: async function() {
-      const {articles} = await newsManager.getPopularArticles(5)
+      const {articles} = await newsManager.getPopularArticles()
       
       this.articles = articles.slice(0, NumberOfHorizontalArticles)
       this.firstMainArticle = articles[NumberOfHorizontalArticles]

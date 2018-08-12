@@ -15,7 +15,7 @@
       SmallVericalPost: SmallVericalPost
     },
     created: async function() {
-      const {articles} = await newsManager.getTopNewsArticles(this.section, 6)
+      const {articles} = await newsManager.getTopNewsArticles(this.section)
       
       this.articles = articles.slice(0, NumberOfArticles)
     },

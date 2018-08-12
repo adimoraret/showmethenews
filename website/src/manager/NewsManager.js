@@ -1,19 +1,19 @@
 
 export default class NewsManager {
 
-  async getPopularArticles(count) {
+  async getPopularArticles() {
     const response = await fetch("resources/news/NewYorkTimes/most_popular/snapshot.json")
     const articles = await response.json()
     return {
-      articles: articles.slice(0, count),
+      articles: articles
     }
   }
 
-  async getTopNewsArticles(section, count) {
+  async getTopNewsArticles(section) {
     const response = await fetch(`resources/news/NewYorkTimes/top_stories/${section}/snapshot.json`)
     const articles = await response.json()
     return {
-      articles: articles.slice(0, count)
+      articles: articles
     }
   }
 
