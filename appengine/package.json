@@ -1,0 +1,16 @@
+{
+  "name": "showmethenews-appengine",
+  "version": "1.0.0",
+  "description": "showmethenews appengine",
+  "main": "index.js",
+  "scripts": {
+    "deploy-cron": "gcloud app deploy cron.yaml",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adrian Moraret",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/pubsub": "^0.19.0",
+    "express": "^4.16.3"
+  }
+}
