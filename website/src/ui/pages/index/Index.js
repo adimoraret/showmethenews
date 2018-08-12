@@ -4,23 +4,14 @@ import LatestJobsHackerNews from './HackerNews/LatestJobs.vue'
 import PopularNewsSection from './PopularNewsSection/PopularNewsSection.vue'
 import TopNewsSection from './TopNewsSection/TopNewsSection.vue'
 
-new Vue({
-  el: "#hackernews",
-  render: h => h(BestStoriesHackerNews)
-})
-new Vue({
-  el: "#hackernewsjobs",
-  render: h => h(LatestJobsHackerNews)
-})
-new Vue({
-  el: "#popularnewssection",
-  render: h => h(PopularNewsSection)
-})
-new Vue({
-  el: '#topnewssection',
-  render: h => h(TopNewsSection)
-})
-
+const vueComponents = [
+  { el: '#hackernews', render: h => h(BestStoriesHackerNews) },
+  { el: '#hackernewsjobs', render: h => h(LatestJobsHackerNews) },
+  { el: '#popularnews', render: h => h(PopularNewsSection) },
+  { el: '#topnewstechnology', render: h => h(TopNewsSection, { props: { section: 'technology' } }) },
+  { el: '#topnewsscience', render: h => h(TopNewsSection, { props: { section: 'science' } }) },
+];
+vueComponents.map(v => new Vue(v));
 
 if (ENV_IS_DEVELOPMENT) {
   Vue.config.devtools = true;

@@ -101,7 +101,7 @@
     <!-- Featured Posts Grid -->      
     <section class="featured-posts-grid">
       <div class="container">
-        <div id="popularnewssection"></div>
+        <div id="popularnews"></div>
       </div>
     </section> <!-- end featured posts grid -->
 
@@ -113,7 +113,6 @@
         <!-- Posts -->
         <div class="col-lg-8 blog__content">
           
-          <!-- Latest News -->
           <section class="section tab-post mb-16">
             <div class="title-wrap title-wrap--line">
               <h3 class="section-title">Latest News</h3>
@@ -121,30 +120,38 @@
               <div class="tabs tab-post__tabs"> 
                 <ul class="tabs__list">
                   <li class="tabs__item tabs__item--active">
-                    <a href="#tab-all" class="tabs__trigger">All</a>
+                    <a href="#tab-technology" class="tabs__trigger">Technology</a>
                   </li>
                   <li class="tabs__item">
-                    <a href="#tab-world" class="tabs__trigger">World</a>
-                  </li>
-                  <li class="tabs__item">
-                    <a href="#tab-lifestyle" class="tabs__trigger">Lifestyle</a>
+                    <a href="#tab-science" class="tabs__trigger">Science</a>
                   </li>
                   <li class="tabs__item">
                     <a href="#tab-business" class="tabs__trigger">Business</a>
                   </li>
                   <li class="tabs__item">
-                    <a href="#tab-fashion" class="tabs__trigger">Fashion</a>
+                    <a href="#tab-health" class="tabs__trigger">Health</a>
                   </li>
-                </ul> <!-- end tabs -->
+                  <li class="tabs__item">
+                    <a href="#tab-realestate" class="tabs__trigger">Realestate</a>
+                  </li>
+                  <li class="tabs__item">
+                      <a href="#tab-movies" class="tabs__trigger">Movies</a>
+                    </li>
+                </ul>
               </div>
             </div>
 
-            <!-- tab content -->
             <div class="tabs__content tabs__content-trigger tab-post__tabs-content">
-              <div id="topnewssection"></div>
-            </div> <!-- end tab content -->            
-            
-          </section> <!-- end latest news -->
+              <div class="tabs__content-pane tabs__content-pane--active" id="tab-technology" style="display: block;">
+                <div id="topnewstechnology"></div>
+              </div>
+            </div>
+            <div class="tabs__content tabs__content-trigger tab-post__tabs-content">
+                <div class="tabs__content-pane tabs__content-pane--active" id="tab-science">
+                  <div id="topnewsscience"></div>
+                </div>
+              </div>
+          </section>
 
         </div> <!-- end posts -->
 
