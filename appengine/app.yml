@@ -3,5 +3,5 @@ runtime: nodejs8
 instance_class: F2
 
 env_variables:
-  PUBSUB_TOPIC: projects/showmethenews-1/topics/crawl-news
+  PUBSUB_NEWS_TOPIC: projects/showmethenews-1/topics/crawl-news
   PUBSUB_VERIFICATION_TOKEN: YOUR_VERIFICATION_TOKEN
