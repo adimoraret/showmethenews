@@ -1,14 +1,16 @@
-function isValid(req) {
-  return req.get('X-AppEngine-Cron') === 'true'
-}
+export default class RequestHelper {
+  constructor(req) {
+    this._req = req
+  }
 
-function extractMessage(req) {
-  const { source, category, section } = req.params
-  const message = { source: source, category: category, section: section }
-  return JSON.stringify(message)
-}
+  isValid() {
+    return this._req.get('X-AppEngine-Cron') === 'true'
+  }
 
-module.exports = {
-  isValid: isValid,
-  extractMessage: extractMessage
+  extractMessage() {
+    const { source, category, section } = this._req.params
+    const message = { source: source, category: category, section: section }
+    return JSON.stringify(message)
+  }
+
 }
