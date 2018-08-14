@@ -1,14 +1,15 @@
-const PubSub = require('@google-cloud/pubsub')
-const pubsub = PubSub()
-const topic = pubsub.topic(process.env.PUBSUB_TOPIC)
+import PubSub from '@google-cloud/pubsub'
 
-function publish(message, errorCallback, successCallback) {
-  const publisher = topic.publisher()
-  publisher.publish(Buffer.from(message), err =>
-    err ? errorCallback(err) : successCallback()
-  )
-}
+export default class NewsPubSub {
 
-module.exports = {
-  publish: publish
+  constructor() {
+    this._topic = PubSub().topic(process.env.PUBSUB_NEWS_TOPIC)
+  }
+
+  publish(message, errorCallback, successCallback) {
+    const publisher = this._topic.publisher()
+    publisher.publish(Buffer.from(message), err =>
+      err ? errorCallback(err) : successCallback()
+    )
+  }
 }
