@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "gcloud functions delete crawlNews --region=us-central1 && sls remove && sls deploy",
+    "deploy": "sls deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "serverless.com",
@@ -14,7 +14,7 @@
     "node-fetch": "^2.2.0"
   },
   "devDependencies": {
-    "serverless-google-cloudfunctions": "^1.2.0",
+    "serverless-google-cloudfunctions": "^2.0.0",
     "serverless-webpack": "^5.2.0",
     "webpack": "^4.16.2",
     "webpack-node-externals": "^1.7.2"
