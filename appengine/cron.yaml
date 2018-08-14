@@ -1,5 +1,5 @@
 cron:
-- description: "NewYorkTimes Technology News"
+- description: "NewYorkTimes Top Technology News"
   url: /news/NewYorkTimes/top_stories/technology
   schedule: every 24 hours from 02:00 to 02:30
   timezone: America/Los_Angeles
@@ -7,7 +7,7 @@ cron:
     min_backoff_seconds: 60
     max_doublings: 5
     job_retry_limit: 5
-- description: "NewYorkTimes Science News"
+- description: "NewYorkTimes Top Science News"
   url: /news/NewYorkTimes/top_stories/science
   schedule: every 24 hours from 02:00 to 02:30
   timezone: America/Los_Angeles
@@ -15,7 +15,7 @@ cron:
     min_backoff_seconds: 60
     max_doublings: 5
     job_retry_limit: 5
-- description: "NewYorkTimes Science News"
+- description: "NewYorkTimes Top Business News"
   url: /news/NewYorkTimes/top_stories/business
   schedule: every 24 hours from 02:00 to 02:30
   timezone: America/Los_Angeles
@@ -23,7 +23,7 @@ cron:
     min_backoff_seconds: 60
     max_doublings: 5
     job_retry_limit: 5
-- description: "NewYorkTimes Science News"
+- description: "NewYorkTimes Top Health News"
   url: /news/NewYorkTimes/top_stories/health
   schedule: every 24 hours from 02:00 to 02:30
   timezone: America/Los_Angeles
@@ -31,7 +31,7 @@ cron:
     min_backoff_seconds: 60
     max_doublings: 5
     job_retry_limit: 5
-- description: "NewYorkTimes Science News"
+- description: "NewYorkTimes Top Realestate News"
   url: /news/NewYorkTimes/top_stories/realestate
   schedule: every 24 hours from 02:00 to 02:30
   timezone: America/Los_Angeles
@@ -39,8 +39,16 @@ cron:
     min_backoff_seconds: 60
     max_doublings: 5
     job_retry_limit: 5
-- description: "NewYorkTimes Science News"
+- description: "NewYorkTimes Top Movies News"
   url: /news/NewYorkTimes/top_stories/movies
+  schedule: every 24 hours from 02:00 to 02:30
+  timezone: America/Los_Angeles
+  retry_parameters:
+    min_backoff_seconds: 60
+    max_doublings: 5
+    job_retry_limit: 5
+- description: "NewYorkTimes Most Popular Technology News"
+  url: /news/NewYorkTimes/most_popular/technology
   schedule: every 24 hours from 02:00 to 02:30
   timezone: America/Los_Angeles
   retry_parameters:
