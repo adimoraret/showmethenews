@@ -6,6 +6,7 @@ provider:
   name: google
   runtime: nodejs8
   project: showmethenews-1
+  region: us-central1
   # the path to the credentials file needs to be absolute
   credentials: ~/.gcloud/keyfile.json
 
