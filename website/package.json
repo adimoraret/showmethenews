@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --env=development --mode=development",
     "build": "webpack --env=production --mode=production",
+    "deploy": "gsutil cp -r dist/** gs://showmethenews.com",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

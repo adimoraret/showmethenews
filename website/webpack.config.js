@@ -46,8 +46,8 @@ module.exports = function (env) {
       ]
     },
     devServer: {
-      contentBase: path.resolve(__dirname, './src'),
-      publicPath: '/', // not sure ???
+      contentBase: path.resolve(__dirname, './src/html'),
+      publicPath: '/',
       watchContentBase: true, //true to watch static content.
       hot: true,
       overlay: true
@@ -67,8 +67,9 @@ module.exports = function (env) {
   } else {
     baseConfiguration.devtool = '';
     baseConfiguration.plugins.push(new CopyWebpackPlugin([
-      { from: 'src/website/html/theme', to: './theme' },
-      { from: 'src/*.+(html|ico)', to: './[name].[ext]' }
+      { from: 'src/html/theme', to: './theme' },
+      { from: 'src/html/resources', to: './resources' },
+      { from: 'src/html/index.html', to: './[name].[ext]' }
     ]));
   }
 
