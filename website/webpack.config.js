@@ -68,7 +68,6 @@ module.exports = function (env) {
     baseConfiguration.devtool = '';
     baseConfiguration.plugins.push(new CopyWebpackPlugin([
       { from: 'src/html/theme', to: './theme' },
-      { from: 'src/html/resources', to: './resources' },
       { from: 'src/html/index.html', to: './[name].[ext]' }
     ]));
   }
