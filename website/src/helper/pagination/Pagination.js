@@ -14,6 +14,10 @@ export default class Pagination {
     return this._currentPage
   }
 
+  getLastPage() {
+    return this._totalPages
+  }
+
   nextPage() {
     if (this._currentPage < this._totalPages) {
       this._currentPage++
