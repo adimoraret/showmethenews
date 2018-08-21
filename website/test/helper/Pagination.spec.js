@@ -179,4 +179,17 @@ describe('Visiblle page buttons', () => {
     expect(buttons).to.deep.equal([2, 3, 4])
   })
 
+  it('should show current page in middle of visible pages', () => {
+    const pagination = new Pagination()
+    pagination.init({
+      currentPage: 1,
+      itemsPerPage: 1,
+      items: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'],
+      visiblePages: 5,
+    })
+
+    const buttons = pagination.getVisiblePages()
+    expect(buttons).to.deep.equal([1, 2, 3, 4, 5])
+  })
+
 })

@@ -1,15 +1,42 @@
 <template>
-    <nav class="pagination">
-      <span class="pagination__page pagination__page--current">1</span>
-      <a href="#" class="pagination__page">2</a>
-      <a href="#" class="pagination__page">3</a>
-      <a href="#" class="pagination__page">4</a>
-      <a href="#" class="pagination__page pagination__icon pagination__page--next"><i class="ui-arrow-right"></i></a>
-    </nav>
+  <nav class="pagination">
+    
+  </nav>
 </template>
 <script>
   
 export default {
-  
+  name: 'Pagination',
+  computed: {
+    getVisiblePages(){
+      if (this.currentPage === 1){
+        return this.createConsecutiveArray(this.visiblePages, 1)
+      }
+      if (this.currentPage === this.totalPages) {
+        return this.createConsecutiveArray(this.visiblePages, this.totalPages - this.visiblePages + 1)
+      }
+      
+
+    }
+  },
+  methods: {
+    createConsecutiveArray(numberOfElements, start){
+      return Array.from(new Array(this._visiblePages), (x, i) => (i + start))
+    },
+    clickPage(pageNumber) {
+      this.currentPage = pageNumber
+    },
+    prevPage(){
+      if (this.currentPage > 1) {
+        this.currentPage--
+      }
+    },
+    nextPage(){
+      if (this.currentPage < totalPages) {
+        this.currentPage++
+      }
+    }
+  },
+  props : ['currentPage', 'visiblePages', 'totalPages']
 }
 </script>

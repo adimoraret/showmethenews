@@ -39,26 +39,19 @@ export default class Pagination {
     return this._items.slice(start, start + Math.min(this._itemsPerPage, this._itemsNumber - start))
   }
 
-  getVisiblePages() {
-    if (this._currentPage == 1) {
-      return Array.from(new Array(this._visiblePages), (x, i) => (i + 1))
-    }
-    if (this._currentPage == this._totalPages) {
-      return Array.from(new Array(this._visiblePages), (x, i) => this._totalPages - this._visiblePages + i + 1)
-    }
+  generateConsecutiveArray(size, start) {
+    return Array.from(new Array(size), (x, i) => (i + start))
+  }
 
-    const a = []
-    for (var i = this._currentPage - Math.floor(this._visiblePages / 2); i < this._currentPage; i++) {
-      if (i >= 1) {
-        a.push(i)
-      }
+  getVisiblePages() {
+    if (this._currentPage <= Math.floor(this._visiblePages / 2) + 1) {
+      return this.generateConsecutiveArray(this._visiblePages, 1)
     }
-    a.push(this._currentPage)
-    for (var i = this._currentPage + 1; i <= this._currentPage + Math.floor(this._visiblePages / 2); i++) {
-      if (i <= this._totalPages) {
-        a.push(i)
-      }
+    else if (this._currentPage >= this._totalPages - Math.floor(this._visiblePages / 2)) {
+      return this.generateConsecutiveArray(this._visiblePages, this._totalPages - this._visiblePages + 1)
     }
-    return a
+    else {
+      return this.generateConsecutiveArray(this._visiblePages, this._currentPage - Math.floor(this._visiblePages / 2))
+    }
   }
 }
