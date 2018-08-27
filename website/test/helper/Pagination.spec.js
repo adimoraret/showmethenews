@@ -43,7 +43,7 @@ describe('Navigation', () => {
   it('should navigate one page forward', () => {
     const pagination = new Pagination()
     pagination.init({
-      items: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+      totalItems: 15,
       itemsPerPage: 13,
       currentPage: 1
     })
@@ -68,62 +68,62 @@ describe('Navigation', () => {
 
 })
 
-describe('Items pagination', () => {
+// describe('Items pagination', () => {
 
-  it('should get all items when they fit on a single page', () => {
-    const pagination = new Pagination()
-    pagination.init({
-      itemsPerPage: 5,
-      items: [1, 2, 3, 4, 5],
-      currentPage: 1
-    })
+//   it('should get all items when they fit on a single page', () => {
+//     const pagination = new Pagination()
+//     pagination.init({
+//       itemsPerPage: 5,
+//       totalItems: 5,
+//       currentPage: 1
+//     })
 
-    const items = pagination.getItems()
-    expect(items).to.deep.equal([1, 2, 3, 4, 5])
-  })
+//     const items = pagination.getItems()
+//     expect(items).to.deep.equal([1, 2, 3, 4, 5])
+//   })
 
-  it('should get all items from the first page', () => {
-    const pagination = new Pagination()
-    pagination.init({
-      itemsPerPage: 5,
-      items: [1, 2, 3, 4, 5, 6],
-      currentPage: 1
-    })
+//   it('should get all items from the first page', () => {
+//     const pagination = new Pagination()
+//     pagination.init({
+//       itemsPerPage: 5,
+//       items: [1, 2, 3, 4, 5, 6],
+//       currentPage: 1
+//     })
 
-    const items = pagination.getItems()
-    expect(items).to.deep.equal([1, 2, 3, 4, 5])
-  })
+//     const items = pagination.getItems()
+//     expect(items).to.deep.equal([1, 2, 3, 4, 5])
+//   })
 
-  it('should get all items from the second page', () => {
-    const pagination = new Pagination()
-    pagination.init({
-      itemsPerPage: 5,
-      items: [1, 2, 3, 4, 5, 6, 7],
-      currentPage: 2
-    })
+//   it('should get all items from the second page', () => {
+//     const pagination = new Pagination()
+//     pagination.init({
+//       itemsPerPage: 5,
+//       items: [1, 2, 3, 4, 5, 6, 7],
+//       currentPage: 2
+//     })
 
-    const items = pagination.getItems()
-    expect(items).to.deep.equal([6, 7])
-  })
+//     const items = pagination.getItems()
+//     expect(items).to.deep.equal([6, 7])
+//   })
 
-  it('should get items from the first page and then, after changing the page, items from the second page', () => {
-    const pagination = new Pagination()
-    pagination.init({
-      itemsPerPage: 5,
-      items: [1, 2, 3, 4, 5, 6, 7],
-      currentPage: 1
-    })
+//   it('should get items from the first page and then, after changing the page, items from the second page', () => {
+//     const pagination = new Pagination()
+//     pagination.init({
+//       itemsPerPage: 5,
+//       items: [1, 2, 3, 4, 5, 6, 7],
+//       currentPage: 1
+//     })
 
-    let items = pagination.getItems()
+//     let items = pagination.getItems()
 
-    expect(items).to.deep.equal([1, 2, 3, 4, 5])
+//     expect(items).to.deep.equal([1, 2, 3, 4, 5])
 
-    pagination.nextPage()
-    items = pagination.getItems()
-    expect(items).to.deep.equal([6, 7])
-  })
+//     pagination.nextPage()
+//     items = pagination.getItems()
+//     expect(items).to.deep.equal([6, 7])
+//   })
 
-})
+// })
 
 describe('Visiblle page buttons', () => {
 
@@ -131,7 +131,7 @@ describe('Visiblle page buttons', () => {
     const pagination = new Pagination()
     pagination.init({
       itemsPerPage: 5,
-      items: ['a', 'b', 'c', 'd', 'e'],
+      totalItems: 5,
       visiblePages: 3,
       currentPage: 1
     })
@@ -144,7 +144,7 @@ describe('Visiblle page buttons', () => {
     const pagination = new Pagination()
     pagination.init({
       itemsPerPage: 3,
-      items: ['a', 'b', 'c', 'd', 'e'],
+      totalItems: 5,
       visiblePages: 2,
       currentPage: 1
     })
@@ -157,7 +157,7 @@ describe('Visiblle page buttons', () => {
     const pagination = new Pagination()
     pagination.init({
       itemsPerPage: 2,
-      items: ['a', 'a', 'b', 'c', 'd'],
+      totalItems: 5,
       visiblePages: 100,
       currentPage: 3
     })
@@ -171,7 +171,7 @@ describe('Visiblle page buttons', () => {
     pagination.init({
       currentPage: 3,
       itemsPerPage: 1,
-      items: ['a', 'b', 'c', 'd', 'e'],
+      totalItems: 5,
       visiblePages: 3,
     })
 
@@ -184,7 +184,7 @@ describe('Visiblle page buttons', () => {
     pagination.init({
       currentPage: 1,
       itemsPerPage: 1,
-      items: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'],
+      totalItems: 9,
       visiblePages: 5,
     })
 

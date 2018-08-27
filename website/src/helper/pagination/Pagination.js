@@ -1,11 +1,18 @@
 export default class Pagination {
-  init(configuration) {
-    const { visiblePages, itemsPerPage, currentPage, items } = configuration
+  constructor(visiblePages, itemsPerPage, currentPage, totalItems) {
     this._itemsPerPage = itemsPerPage
     this._currentPage = currentPage
-    this._items = items || []
+    this._itemsNumber = totalItems
 
-    this._itemsNumber = this._items.length
+    this._totalPages = Math.ceil(this._itemsNumber / itemsPerPage)
+    this._visiblePages = Math.min(visiblePages, this._totalPages)
+  }
+  init(configuration) {
+    const { visiblePages, itemsPerPage, currentPage, totalItems } = configuration
+    this._itemsPerPage = itemsPerPage
+    this._currentPage = currentPage
+    this._itemsNumber = totalItems
+
     this._totalPages = Math.ceil(this._itemsNumber / itemsPerPage)
     this._visiblePages = Math.min(visiblePages, this._totalPages)
   }
@@ -34,10 +41,18 @@ export default class Pagination {
     this._currentPage = pageNumber
   }
 
-  getItems() {
-    const start = (this._currentPage - 1) * this._itemsPerPage
-    return this._items.slice(start, start + Math.min(this._itemsPerPage, this._itemsNumber - start))
+  getFirstAndLastPosition() {
+    const first = (this._currentPage - 1) * this._itemsPerPage
+    return {
+      first: first,
+      last: first + Math.min(this._itemsPerPage, this._itemsNumber - first)
+    }
   }
+
+  // getItems() {
+  //   const start = (this._currentPage - 1) * this._itemsPerPage
+  //   return this._items.slice(start, start + Math.min(this._itemsPerPage, this._itemsNumber - start))
+  // }
 
   generateConsecutiveArray(size, start) {
     return Array.from(new Array(size), (x, i) => (i + start))
