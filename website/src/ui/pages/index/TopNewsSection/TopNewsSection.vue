@@ -4,92 +4,48 @@
         <SmallVericalPost v-for="article in articles" :key="article.url" :article="article"></SmallVericalPost>
       </div>
       
-      <nav class="pagination">
-        <a v-if="CurrentPage != 1" href="#latest-news" @click="prevPage()"
-        class="pagination__page pagination__icon pagination__page--next">
-          <i class="ui-arrow-left"></i>
-        </a>
-        <span v-else class="pagination__page pagination__icon pagination__page--next">
-          <i class="ui-arrow-left"></i>
-        </span>
-
-        <span v-for="page in pages" :key="page">
-          <span v-if="CurrentPage === page" class="pagination__page pagination__page--current">{{CurrentPage}}</span>
-          <a v-else href="#latest-news" 
-            @click="clickPage(page)"  
-            class="pagination__page">{{page}}</a>
-        </span>
-
-        <a v-if="CurrentPage != LastPage" href="#latest-news" @click="nextPage()"
-        class="pagination__page pagination__icon pagination__page--next">
-          <i class="ui-arrow-right"></i>
-        </a>
-        <span v-else class="pagination__page pagination__icon pagination__page--next">
-          <i class="ui-arrow-right"></i>
-        </span>
-
-      </nav>
-
+      <Pagination :visiblePages="5" :itemsPerPage="6" :totalItems="totalArticles" @pageChanged="handlePageChange"/>
+ 
     </div>
 </template>
 <script>
   import SmallVericalPost from '../../../components/news/SmallVerticalPost.vue'
   import NewsManager from '../../../../manager/NewsManager.js'
-  import Paginaton from '../../../../helper/pagination/Pagination.js'
+  import Pagination from '../../../components/pagination/Pagination.vue'
 
   const NumberOfArticles = 6
   const newsManager = new NewsManager()
 
   export default {
     components: {
-      SmallVericalPost: SmallVericalPost
-    },
-    watch: {
-      CurrentPage: function(newPage, oldPage){
-        console.log('changed')
-        this.pagination.clickPage(newPage)
-        this.articles = this.pagination.getItems()
-        this.pages = this.pagination.getVisiblePages()
-      }
+      SmallVericalPost: SmallVericalPost,
+      Pagination: Pagination
     },
     methods: {
-      clickPage(pageNumber) {
-        this.CurrentPage = pageNumber
-      },
-      prevPage(){
-        this.pagination.prevPage()
-        this.CurrentPage = this.pagination.getCurrentPage()
-      },
-      nextPage(){
-        this.pagination.nextPage()
-        this.CurrentPage = this.pagination.getCurrentPage()
+      handlePageChange(firstAndLastPosition){
+        const {first, last} = firstAndLastPosition
+        this.articles = this.allArticles.slice(first, last)
       }
     },
     created: async function() {
       const {articles} = await newsManager.getTopNewsArticles(this.section)
-      this.pagination.init({ 
-        visiblePages:3, 
-        itemsPerPage:NumberOfArticles, 
-        currentPage:this.CurrentPage, 
-        items:articles })
-      
-      this.articles = this.pagination.getItems()
-      this.pages = this.pagination.getVisiblePages()
-      this.LastPage = this.pagination.getLastPage()
+      this.allArticles = articles
+      this.totalArticles = articles.length
+      this.articles = articles.slice(this.firstPos-1, this.lastPos)
     },
     data : function(){
       return {
         articles: newsManager.getEmptyArticles(NumberOfArticles),
-        pages: [],
-        CurrentPage: 1,
-        LastPage: 1,
-        pagination: new Paginaton()
+        allArticles:[],
+        totalArticles: 1,
+        firstPos: 1,
+        lastPos: 6
       }
     },
     props: {
       section: {
-          type: String,
-          required: true
+        type: String,
+        required: true
       }
     }
   }

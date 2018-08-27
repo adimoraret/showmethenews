@@ -10,10 +10,10 @@ const vueComponents = [
   { el: '#popularnews', render: h => h(PopularNewsSection) },
   { el: '#topnewstechnology', render: h => h(TopNewsSection, { props: { section: 'technology' } }) },
   { el: '#topnewsscience', render: h => h(TopNewsSection, { props: { section: 'science' } }) },
-  // { el: '#topnewsbusiness', render: h => h(TopNewsSection, { props: { section: 'business' } }) },
-  // { el: '#topnewshealth', render: h => h(TopNewsSection, { props: { section: 'health' } }) },
-  // { el: '#topnewsrealestate', render: h => h(TopNewsSection, { props: { section: 'realestate' } }) },
-  // { el: '#topnewsmoives', render: h => h(TopNewsSection, { props: { section: 'movies' } }) },
+  { el: '#topnewsbusiness', render: h => h(TopNewsSection, { props: { section: 'business' } }) },
+  { el: '#topnewshealth', render: h => h(TopNewsSection, { props: { section: 'health' } }) },
+  { el: '#topnewsrealestate', render: h => h(TopNewsSection, { props: { section: 'realestate' } }) },
+  { el: '#topnewsmoives', render: h => h(TopNewsSection, { props: { section: 'movies' } }) },
 ];
 vueComponents.map(v => new Vue(v));
 
