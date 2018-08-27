@@ -24,18 +24,19 @@
     methods: {
       handlePageChange(firstAndLastPosition){
         const {first, last} = firstAndLastPosition
-        console.log(`first: ${first} last: ${last}`)
-        this.articles = this.articles.slice(first, last)
+        this.articles = this.allArticles.slice(first, last)
       }
     },
     created: async function() {
       const {articles} = await newsManager.getTopNewsArticles(this.section)
-      this.totalArticles = 32
+      this.allArticles = articles
+      this.totalArticles = articles.length
       this.articles = articles.slice(this.firstPos-1, this.lastPos)
     },
     data : function(){
       return {
         articles: newsManager.getEmptyArticles(NumberOfArticles),
+        allArticles:[],
         totalArticles: 1,
         firstPos: 1,
         lastPos: 6

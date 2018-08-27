@@ -32,15 +32,10 @@ export default {
   },
   watch: {
     totalItems: function(val) {
-      var currentPage = this.pagination.getCurrentPage()
-      this.pagination = new Pagination(this.visiblePages, this.itemsPerPage, currentPage, val)
+      this.pagination = new Pagination(this.visiblePages, this.itemsPerPage, this.currentPage, val)
       this.pages = this.pagination.getVisiblePages()
     }
   },
-  created() {
-    this.pagination = new Pagination(this.visiblePages, this.itemsPerPage, 1, this.totalItems)
-    this.pages = this.pagination.getVisiblePages()
-  },  
   methods: {
     refreshPagination(){
       this.pages = this.pagination.getVisiblePages()
