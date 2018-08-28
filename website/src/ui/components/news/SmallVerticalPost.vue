@@ -39,3 +39,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.thumb-container.thumb-70{
+  background-color: #dddddd
+}
+</style>
