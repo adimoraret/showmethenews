@@ -11,10 +11,9 @@
         </h2>
         <ul class="entry__meta">
           <li class="entry__meta-author">
-            <span>Published at</span>
+            <span>Published</span>
           </li>
-          <li class="entry__meta-date">
-            {{article.publishedDate}}
+          <li class="entry__meta-date" v-date="article.publishedDate">
           </li>              
         </ul>
       </div>
@@ -23,7 +22,11 @@
 </template>
 
 <script>
+import DateDirective from '../date/DateDirective';
 export default {
+  directives: {
+    date: DateDirective
+  },
   props: {
     article: {
         type: Object,
