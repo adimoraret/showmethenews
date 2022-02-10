@@ -31,7 +31,7 @@
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "mocha": "^5.2.0",
-    "node-sass": "^4.9.2",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "vue-loader": "^14.2.2",
